@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Home, 
@@ -15,13 +15,13 @@ const Nav = () => {
   const [activeNav, setActiveNav] = useState("#");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { href: "#", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
     { href: "#experience", icon: BookOpen, label: "Experience" },
     { href: "#portfolio", icon: Briefcase, label: "Portfolio" },
     { href: "#contact", icon: MessageCircle, label: "Contact" }
-  ];
+  ], []);
 
   // Update active nav based on scroll position
   useEffect(() => {
