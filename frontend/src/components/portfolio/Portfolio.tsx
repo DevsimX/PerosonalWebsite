@@ -133,15 +133,7 @@ const Portfolio = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+    visible: { opacity: 1, y: 0, scale: 1 }
   };
 
   return (
@@ -212,6 +204,7 @@ const Portfolio = () => {
                 key={project.id}
                 className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl"
                 variants={itemVariants}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 layout
                 whileHover={{ y: -10 }}
               >
