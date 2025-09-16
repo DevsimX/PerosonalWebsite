@@ -1,0 +1,240 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { 
+  Code2, 
+  Database, 
+  Cloud, 
+  GitBranch, 
+  Zap, 
+  Shield, 
+  Layers, 
+  Globe, 
+  Cpu, 
+  Settings,
+  CheckCircle,
+  Star
+} from "lucide-react";
+
+const Experience = () => {
+  const categories = [
+    {
+      title: "Frontend Development",
+      icon: Code2,
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-500/10",
+      borderColor: "border-blue-500/20",
+      skills: [
+        { name: "Next.js", level: "Expert", icon: Star },
+        { name: "React", level: "Expert", icon: Star },
+        { name: "TypeScript", level: "Expert", icon: Star },
+        { name: "JavaScript (ES6+)", level: "Expert", icon: Star },
+        { name: "Tailwind CSS", level: "Advanced", icon: CheckCircle },
+        { name: "CSS3 & SCSS", level: "Advanced", icon: CheckCircle },
+        { name: "HTML5", level: "Advanced", icon: CheckCircle },
+        { name: "Redux & Zustand", level: "Advanced", icon: CheckCircle },
+        { name: "Vue.js", level: "Intermediate", icon: CheckCircle },
+        { name: "Angular", level: "Intermediate", icon: CheckCircle },
+        { name: "Webpack & Vite", level: "Advanced", icon: CheckCircle },
+        { name: "Jest & Testing Library", level: "Advanced", icon: CheckCircle }
+      ]
+    },
+    {
+      title: "Backend Development",
+      icon: Database,
+      color: "from-purple-500 to-pink-500",
+      bgColor: "bg-purple-500/10",
+      borderColor: "border-purple-500/20",
+      skills: [
+        { name: "Django & DRF", level: "Expert", icon: Star },
+        { name: "Python", level: "Expert", icon: Star },
+        { name: "FastAPI", level: "Advanced", icon: CheckCircle },
+        { name: "Node.js & Express", level: "Advanced", icon: CheckCircle },
+        { name: "PostgreSQL", level: "Advanced", icon: CheckCircle },
+        { name: "MongoDB", level: "Advanced", icon: CheckCircle },
+        { name: "Redis", level: "Advanced", icon: CheckCircle },
+        { name: "MySQL", level: "Advanced", icon: CheckCircle },
+        { name: "GraphQL", level: "Intermediate", icon: CheckCircle },
+        { name: "RESTful APIs", level: "Expert", icon: Star },
+        { name: "Microservices", level: "Advanced", icon: CheckCircle },
+        { name: "WebSocket", level: "Advanced", icon: CheckCircle }
+      ]
+    },
+    {
+      title: "DevOps & Tools",
+      icon: Cloud,
+      color: "from-green-500 to-emerald-500",
+      bgColor: "bg-green-500/10",
+      borderColor: "border-green-500/20",
+      skills: [
+        { name: "Git & GitHub", level: "Expert", icon: Star },
+        { name: "CI/CD Pipelines", level: "Expert", icon: Star },
+        { name: "Docker & Docker Compose", level: "Advanced", icon: CheckCircle },
+        { name: "Kubernetes", level: "Advanced", icon: CheckCircle },
+        { name: "AWS (EC2, S3, RDS)", level: "Advanced", icon: CheckCircle },
+        { name: "Azure DevOps", level: "Advanced", icon: CheckCircle },
+        { name: "Jenkins & GitHub Actions", level: "Advanced", icon: CheckCircle },
+        { name: "Linux & Bash", level: "Advanced", icon: CheckCircle },
+        { name: "Nginx & Apache", level: "Advanced", icon: CheckCircle },
+        { name: "Monitoring & Logging", level: "Advanced", icon: CheckCircle },
+        { name: "Terraform", level: "Intermediate", icon: CheckCircle },
+        { name: "Ansible", level: "Intermediate", icon: CheckCircle }
+      ]
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const skillVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4
+      }
+    }
+  };
+
+  return (
+    <section id="experience" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-blue-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl animate-float"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <span className="inline-block px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full text-sm font-medium mb-4 border border-purple-500/30">
+            What Skills I Have
+          </span>
+          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-6">
+            My Experience
+          </h2>
+        </motion.div>
+
+        <motion.div 
+          className="grid lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {categories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              className={`group relative p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-3xl hover:bg-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
+              variants={cardVariants}
+              whileHover={{ y: -10 }}
+            >
+              {/* Header */}
+              <div className="flex items-center mb-8">
+                <div className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">
+                  {category.title}
+                </h3>
+              </div>
+
+              {/* Skills Grid */}
+              <motion.div 
+                className="space-y-4"
+                variants={containerVariants}
+              >
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    className="group/skill flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                    variants={skillVariants}
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-8 h-8 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center group-hover/skill:scale-110 transition-transform duration-300`}>
+                        <skill.icon className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-white font-medium group-hover/skill:text-transparent group-hover/skill:bg-gradient-to-r group-hover/skill:from-blue-400 group-hover/skill:to-purple-400 group-hover/skill:bg-clip-text transition-all duration-300">
+                        {skill.name}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className={`text-sm font-semibold px-2 py-1 rounded-full ${
+                        skill.level === 'Expert' 
+                          ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white' 
+                          : 'bg-white/20 text-gray-300'
+                      }`}>
+                        {skill.level}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Decorative Elements */}
+              <div className={`absolute top-4 right-4 w-20 h-20 bg-gradient-to-r ${category.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
+              <div className={`absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-r ${category.color} rounded-full opacity-5 group-hover:opacity-15 transition-opacity duration-300`}></div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <motion.p 
+            className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            With expertise spanning across frontend, backend, and DevOps technologies, I bring a comprehensive approach to building modern, scalable applications that deliver exceptional user experiences.
+          </motion.p>
+          
+          <motion.a
+            href="#contact"
+            className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+            Let's Build Something Amazing
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
