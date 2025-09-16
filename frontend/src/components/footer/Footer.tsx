@@ -100,7 +100,7 @@ const Footer = () => {
               </motion.a>
               <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
                 Passionate full-stack developer crafting digital experiences that make a difference. 
-                Let's build something amazing together.
+                Let&apos;s build something amazing together.
               </p>
               
               {/* Quick Info */}

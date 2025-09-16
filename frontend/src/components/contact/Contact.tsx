@@ -10,9 +10,7 @@ import {
   Github,
   Linkedin,
   Twitter,
-  MapPin,
-  Phone,
-  Clock
+  MapPin
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
@@ -118,7 +116,7 @@ const Contact = () => {
             Contact Me
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
+            Ready to bring your ideas to life? Let&apos;s discuss your project and create something amazing together.
           </p>
         </motion.div>
 

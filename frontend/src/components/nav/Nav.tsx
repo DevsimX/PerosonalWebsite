@@ -43,7 +43,7 @@ const Nav = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navItems]);
 
   const handleNavClick = (href: string) => {
     setActiveNav(href);

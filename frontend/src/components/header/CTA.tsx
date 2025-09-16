@@ -25,7 +25,7 @@ const CTA = () => {
         whileTap={{ scale: 0.95 }}
       >
         <MessageCircle className="w-4 h-4 mr-2 group-hover:animate-pulse" />
-        Let's Talk
+                Let&apos;s Talk
         <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
       </motion.a>
     </div>

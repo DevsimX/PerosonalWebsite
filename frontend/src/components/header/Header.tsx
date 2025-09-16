@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import Image from "next/image";
 import CTA from './CTA';
 import HeaderSocials from './HeaderSocials';
@@ -31,7 +31,7 @@ const Header = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-4 border border-blue-500/30">
-                👋 Hello, I'm
+                👋 Hello, I&apos;m
               </span>
             </motion.div>
 

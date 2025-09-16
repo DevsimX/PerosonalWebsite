@@ -5,13 +5,7 @@ import {
   Code2, 
   Database, 
   Cloud, 
-  GitBranch, 
   Zap, 
-  Shield, 
-  Layers, 
-  Globe, 
-  Cpu, 
-  Settings,
   CheckCircle,
   Star
 } from "lucide-react";
@@ -148,7 +142,7 @@ const Experience = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {categories.map((category, categoryIndex) => (
+          {categories.map((category) => (
             <motion.div
               key={category.title}
               className={`group relative p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-3xl hover:bg-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
@@ -170,7 +164,7 @@ const Experience = () => {
                 className="space-y-4"
                 variants={containerVariants}
               >
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
                     className="group/skill flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
@@ -228,7 +222,7 @@ const Experience = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-            Let's Build Something Amazing
+            Let&apos;s Build Something Amazing
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </motion.a>
         </motion.div>

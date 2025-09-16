@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Github, 
   ExternalLink, 
-  Play, 
   Code2, 
   Smartphone, 
   Globe, 
@@ -340,7 +339,7 @@ const Portfolio = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-            Let's Create Something Together
+            Let&apos;s Create Something Together
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </motion.a>
