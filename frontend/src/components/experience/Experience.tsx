@@ -89,14 +89,7 @@ const Experience = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+    visible: { opacity: 1, y: 0 }
   };
 
   const skillVariants = {
@@ -147,6 +140,7 @@ const Experience = () => {
               key={category.title}
               className={`group relative p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-3xl hover:bg-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
               variants={cardVariants}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               whileHover={{ y: -10 }}
             >
               {/* Header */}
