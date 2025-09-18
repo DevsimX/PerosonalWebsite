@@ -11,37 +11,37 @@ const About = () => {
       title: "Experience",
       value: "1+ Years",
       description: "Working Experience",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-[#2E7D32] to-[#8ECAE6]"
     },
     {
       icon: GraduationCap,
       title: "Education",
       value: "Master's",
       description: "Software Engineering",
-      color: "from-purple-500 to-pink-500"
+      color: "from-[#FFB703] to-[#8ECAE6]"
     },
     {
       icon: MapPin,
       title: "Visa Status",
       value: "485 Visa",
       description: "Expires 2030",
-      color: "from-green-500 to-emerald-500"
+      color: "from-[#2E7D32] to-[#FFB703]"
     }
   ];
 
   const skills = [
-    { name: "Frontend Development", icon: Code, level: 90, color: "from-blue-500 to-cyan-500" },
-    { name: "Backend Development", icon: Database, level: 85, color: "from-purple-500 to-pink-500" },
+    { name: "Frontend Development", icon: Code, level: 90, color: "from-[#2E7D32] to-[#8ECAE6]" },
+    { name: "Backend Development", icon: Database, level: 85, color: "from-[#FFB703] to-[#8ECAE6]" },
     { name: "Cloud & DevOps", icon: Cloud, level: 80, color: "from-green-500 to-emerald-500" },
-    { name: "Performance Optimization", icon: Zap, level: 88, color: "from-yellow-500 to-orange-500" }
+    { name: "Performance Optimization", icon: Zap, level: 88, color: "from-[#FFB703] to-[#2E7D32]" }
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[rgba(46,125,50,0.7)] rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[rgba(255,183,3,0.7)] rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -52,10 +52,10 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-4 border border-blue-500/30">
+          <span className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 border bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]">
             Get To Know
           </span>
-          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-6">
             About Me
           </h2>
         </motion.div>
@@ -71,12 +71,12 @@ const About = () => {
           >
             <div className="relative">
               {/* Decorative Elements */}
-              <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-2xl"></div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-full"></div>
+              <div className="absolute -inset-8 rounded-full blur-2xl bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))]"></div>
+              <div className="absolute -inset-4 rounded-full bg-[linear-gradient(to_right,rgba(142,202,230,0.7),rgba(46,125,50,0.7))]"></div>
               
               {/* Main Image Container */}
               <motion.div 
-                className="relative w-80 h-96 lg:w-96 lg:h-[500px] rounded-3xl overflow-hidden border-2 border-white/20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm mx-auto"
+                className="relative w-80 h-96 lg:w-96 lg:h-[500px] rounded-3xl overflow-hidden border-2 border-[rgba(46,125,50,0.3)] bg-[linear-gradient(to_bottom_right,rgba(46,125,50,0.1),rgba(142,202,230,0.1))] backdrop-blur-sm mx-auto"
                 whileHover={{ scale: 1.05, rotateY: 5 }}
                 transition={{ duration: 0.3 }}
               >
@@ -170,13 +170,13 @@ const About = () => {
             >
               <motion.a 
                 href="#contact" 
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white font-semibold rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <MessageCircle className="w-5 h-5 mr-2 group-hover:animate-pulse" />
                 Let&apos;s Talk
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-full bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </motion.a>
             </motion.div>
           </motion.div>

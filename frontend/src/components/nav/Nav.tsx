@@ -18,8 +18,8 @@ const Nav = () => {
   const navItems = useMemo(() => [
     { href: "#", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
-    { href: "#experience", icon: BookOpen, label: "Experience" },
-    { href: "#portfolio", icon: Briefcase, label: "Portfolio" },
+    { href: "#skill", icon: BookOpen, label: "Skills" },
+    { href: "#portfolio", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: MessageCircle, label: "Contact" }
   ], []);
 
@@ -67,7 +67,7 @@ const Nav = () => {
               onClick={() => handleNavClick(item.href)}
               className={`group relative p-3 rounded-xl transition-all duration-300 ${
                 activeNav === item.href
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white shadow-lg'
                   : 'text-gray-400 hover:text-white hover:bg-white/10'
               }`}
               whileHover={{ scale: 1.1, rotate: 5 }}
@@ -87,7 +87,7 @@ const Nav = () => {
               {/* Active indicator */}
               {activeNav === item.href && (
                 <motion.div
-                  className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"
+                  className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-[#2E7D32] to-[#FFB703] rounded-full"
                   layoutId="activeIndicator"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
@@ -140,7 +140,7 @@ const Nav = () => {
                       onClick={() => handleNavClick(item.href)}
                       className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 ${
                         activeNav === item.href
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
+                          ? 'bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white'
                           : 'text-gray-300 hover:text-white hover:bg-white/10'
                       }`}
                       whileHover={{ x: 5 }}
@@ -161,7 +161,7 @@ const Nav = () => {
 
       {/* Scroll Progress Indicator */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] z-50"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         style={{

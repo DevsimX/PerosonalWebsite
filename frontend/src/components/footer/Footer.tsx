@@ -2,9 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
   Mail, 
   ArrowUp,
   Heart,
@@ -12,6 +9,7 @@ import {
   MapPin,
   Phone
 } from "lucide-react";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -21,8 +19,8 @@ const Footer = () => {
   const footerLinks = [
     { name: "Home", href: "#" },
     { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Portfolio", href: "#portfolio" },
+    { name: "Skills", href: "#skill" },
+    { name: "Projects", href: "#portfolio" },
     { name: "Contact", href: "#contact" }
   ];
 
@@ -30,20 +28,14 @@ const Footer = () => {
     {
       name: "GitHub",
       href: "https://github.com/DevsimX",
-      icon: Github,
+      icon: FaGithub,
       color: "hover:text-gray-300"
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/yutian-xia-b43b26234/",
-      icon: Linkedin,
-      color: "hover:text-blue-400"
-    },
-    {
-      name: "Twitter",
-      href: "#",
-      icon: Twitter,
-      color: "hover:text-cyan-400"
+      icon: FaLinkedin,
+      color: "hover:text-[#FFB703]"
     },
     {
       name: "Email",
@@ -57,7 +49,7 @@ const Footer = () => {
     {
       icon: MapPin,
       text: "Melbourne, Australia",
-      color: "text-blue-400"
+      color: "text-[#8ECAE6]"
     },
     {
       icon: Phone,
@@ -67,16 +59,16 @@ const Footer = () => {
     {
       icon: Code,
       text: "Full-Stack Developer",
-      color: "text-purple-400"
+      color: "text-[#FFB703]"
     }
   ];
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 overflow-hidden">
+    <footer className="relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-[rgba(46,125,50,0.7)] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[rgba(255,183,3,0.7)] rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -93,7 +85,7 @@ const Footer = () => {
             >
               <motion.a 
                 href="#" 
-                className="inline-block text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4"
+                className="inline-block text-3xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-4"
                 whileHover={{ scale: 1.05 }}
               >
                 Yutian Xia

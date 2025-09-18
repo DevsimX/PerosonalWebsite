@@ -1,27 +1,22 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const HeaderSocials = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/yutian-xia-b43b26234/',
-      icon: Linkedin,
-      color: 'hover:text-blue-400'
+      icon: FaLinkedin,
+      color: 'hover:text-[#FFB703]'
     },
     {
       name: 'GitHub',
       href: 'https://github.com/DevsimX',
-      icon: Github,
+      icon: FaGithub,
       color: 'hover:text-gray-300'
-    },
-    {
-      name: 'Twitter',
-      href: '#',
-      icon: Twitter,
-      color: 'hover:text-cyan-400'
     },
     {
       name: 'Email',
@@ -39,7 +34,7 @@ const HeaderSocials = () => {
           href={social.href}
           target={social.href.startsWith('http') ? '_blank' : '_self'}
           rel={social.href.startsWith('http') ? 'noopener noreferrer' : ''}
-          className={`group relative p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-gray-400 transition-all duration-300 ${social.color} hover:bg-white/10 hover:scale-110 hover:shadow-lg`}
+          className={`group relative p-3 rounded-full bg-[rgba(15,23,42,0.5)] backdrop-blur-md border border-[rgba(148,163,184,0.3)] text-[#E2E8F0] transition-all duration-300 ${social.color} hover:bg-[rgba(15,23,42,0.65)] hover:scale-110 hover:shadow-lg`}
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: 20 }}

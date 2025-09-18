@@ -3,15 +3,12 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Mail, 
-  MessageCircle, 
   Send, 
   CheckCircle, 
   AlertCircle,
-  Github,
-  Linkedin,
-  Twitter,
   MapPin
 } from "lucide-react";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
@@ -52,15 +49,6 @@ const Contact = () => {
       color: "from-blue-500 to-cyan-500"
     },
     {
-      icon: MessageCircle,
-      title: "WhatsApp",
-      value: "Available 24/7",
-      description: "Quick response guaranteed",
-      action: "Start chatting",
-      href: "#",
-      color: "from-green-500 to-emerald-500"
-    },
-    {
       icon: MapPin,
       title: "Location",
       value: "Melbourne, Australia",
@@ -75,25 +63,19 @@ const Contact = () => {
     {
       name: "GitHub",
       href: "https://github.com/DevsimX",
-      icon: Github,
+      icon: FaGithub,
       color: "hover:text-gray-300"
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/yutian-xia-b43b26234/",
-      icon: Linkedin,
-      color: "hover:text-blue-400"
-    },
-    {
-      name: "Twitter",
-      href: "#",
-      icon: Twitter,
-      color: "hover:text-cyan-400"
+      icon: FaLinkedin,
+      color: "hover:text-[#FFB703]"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <section id="contact" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -112,7 +94,7 @@ const Contact = () => {
           <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-4 border border-blue-500/30">
             Get In Touch
           </span>
-          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#8ECAE6] via-[#FFB703] to-[#2E7D32] bg-clip-text text-transparent mb-6">
             Contact Me
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
