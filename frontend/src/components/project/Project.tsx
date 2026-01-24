@@ -138,26 +138,25 @@ const Project = () => {
 
         {/* Projects Grid */}
         <motion.div 
+          key={selectedCategory}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
         >
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project) => (
-              <motion.article
-                key={project.id}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden flex flex-col"
-                variants={itemVariants}
-                transition={{ duration: 0.6 }}
-                whileHover={{ 
-                  scale: 1.02,
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                }}
-                style={{ transition: "background-color 0.2s ease-out, box-shadow 0.2s ease-out" }}
-              >
+          {filteredProjects.map((project) => (
+            <motion.article
+              key={project.id}
+              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden flex flex-col"
+              variants={itemVariants}
+              transition={{ duration: 0.3 }}
+              whileHover={{ 
+                scale: 1.02,
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
+              style={{ transition: "background-color 0.2s ease-out, box-shadow 0.2s ease-out" }}
+            >
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
                   {project.image ? (
@@ -327,7 +326,6 @@ const Project = () => {
                 ></motion.div>
               </motion.article>
             ))}
-          </AnimatePresence>
         </motion.div>
 
         {/* Bottom CTA */}
