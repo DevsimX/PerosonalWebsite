@@ -10,7 +10,8 @@ import {
   Star,
   ArrowRight,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  BarChart3
 } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
 
@@ -40,6 +41,18 @@ const portfolioData = [
     color: "from-cyan-500 to-blue-500",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "react-icons", "EmailJS"],
     image: "/personal_website.png"
+  },
+  {
+    id: 3,
+    title: "MediaJira",
+    description: "Campaign management platform for media buying teams. Features campaign creation and tracking, team collaboration with role-based permissions, real-time performance analytics, budget tracking with alerts, and professional REST API access.",
+    website: "https://github.com/quanwangniuniu/mediaJira",
+    demo: "",
+    jug: true,
+    category: "Full-Stack Application",
+    icon: BarChart3,
+    color: "from-emerald-500 to-teal-500",
+    technologies: ["Next.js", "Django", "PostgreSQL", "Docker", "Nginx", "Redis", "Tailwind CSS"]
   }
 ];
 
