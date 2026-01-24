@@ -1,46 +1,39 @@
-## Personal Website (Next.js)
+# Personal Website
 
-A modern, animated portfolio built with Next.js, Tailwind CSS, and Framer Motion. It showcases sections for Header, About, Skills, Projects, Contact, and Footer, with a cohesive green/honey/cyan theme.
+Modern, responsive portfolio built with Next.js, Tailwind CSS, and Framer Motion. Features smooth animations, responsive design, and project showcases.
 
-### Live Site
-- Visit: [`perosonal-website-5d42.vercel.app`](https://perosonal-website-5d42.vercel.app)
+**Live Site:** [perosonal-website-5d42.vercel.app](https://perosonal-website-5d42.vercel.app)
 
-### Tech Stack
-- Next.js 15 (App Router)
-- Tailwind CSS
-- Framer Motion (animations)
-- react-icons (social/icons)
-- EmailJS (contact form)
+## Tech Stack
 
-### Features
-- Smooth, accessible animations and scroll interactions
-- Themed components with unified design tokens
-- Projects grid with category filters and motion transitions
-- Contact form with EmailJS integration
+- **Next.js 15** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (animations)
+- **EmailJS** (contact form)
 
-### Getting Started (Local)
-1. Install dependencies
-   - `cd frontend`
-   - `npm install`
-2. Run the dev server
-   - `npm run dev`
-3. Production build
-   - `npm run build`
-   - `npm start`
+## Features
 
-### Project Structure
-- `frontend/src/app` – App router, global styles, page composition
-- `frontend/src/components` – UI components by section
-- `frontend/src/assets` – Images and documents
+- Responsive design (mobile-first)
+- Smooth scroll animations
+- Project showcase with category filters
+- Skills section with categorized technologies
+- Contact form integration
+- Cohesive green/honey/cyan theme
 
-### Design Tokens (key colors)
-- Primary: `#2E7D32`
-- Secondary: `#FFB703`
-- Accent: `#8ECAE6`
-- Neutrals: `#0F172A`, `#334155`, `#94A3B8`, `#E2E8F0`, `#F8FAFC`
+## Quick Start
 
-### Deployment
-Deployed on Vercel. Push to `main` to trigger a new deployment.
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
----
-Questions or feedback? Open an issue or reach out via the Contact section on the site.
+## Projects Showcased
+
+- **OnlineShoppingSystem** - Full-stack e-commerce (Next.js + Django)
+- **Personal Website** - This portfolio site
+
+## Deployment
+
+Deployed on Vercel. Auto-deploys on push to `main`.

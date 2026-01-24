@@ -104,7 +104,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-[rgba(46,125,50,0.7)] rounded-full blur-3xl animate-pulse-slow"></div>
@@ -112,24 +112,24 @@ const Skills = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[rgba(142,202,230,0.7)] rounded-full blur-3xl animate-float"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 border bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]">
+          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 border bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]">
             What Skills I Have
           </span>
-          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-4 sm:mb-6">
             My Skills
           </h2>
         </motion.div>
 
         <motion.div 
-          className="grid lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -138,24 +138,24 @@ const Skills = () => {
           {categories.map((category) => (
             <motion.div
               key={category.title}
-              className={`group relative p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-3xl hover:bg-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
+              className={`group relative p-4 sm:p-6 lg:p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-2xl sm:rounded-3xl hover:bg-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
               variants={cardVariants}
               transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               whileHover={{ y: -10 }}
             >
               {/* Header */}
-              <div className="flex items-center mb-8">
-                <div className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-8 h-8 text-white" />
+              <div className="flex items-center mb-4 sm:mb-6 lg:mb-8">
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${category.color} rounded-xl sm:rounded-2xl flex items-center justify-center mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#2E7D32] group-hover:to-[#FFB703] group-hover:bg-clip-text transition-all duration-300">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#2E7D32] group-hover:to-[#FFB703] group-hover:bg-clip-text transition-all duration-300">
                   {category.title}
                 </h3>
               </div>
 
               {/* Skills Grid */}
               <motion.div 
-                className="space-y-4"
+                className="space-y-2 sm:space-y-3 lg:space-y-4"
                 variants={containerVariants}
               >
                 {(() => {
@@ -167,20 +167,20 @@ const Skills = () => {
                   return sortedSkills.map((skill) => (
                     <motion.div
                       key={skill.name}
-                      className="group/skill flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                      className="group/skill flex items-center justify-between p-2.5 sm:p-3 lg:p-4 bg-white/5 rounded-lg sm:rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
                       variants={skillVariants}
                       whileHover={{ x: 5 }}
                     >
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-8 h-8 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center group-hover/skill:scale-110 transition-transform duration-300`}>
-                          <skill.icon className="w-4 h-4 text-white" />
+                      <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+                        <div className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-r ${category.color} rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 group-hover/skill:scale-110 transition-transform duration-300`}>
+                          <skill.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-white" />
                         </div>
-                        <span className="text-white font-medium group-hover/skill:text-transparent group-hover/skill:bg-gradient-to-r group-hover/skill:from-[#2E7D32] group-hover/skill:to-[#FFB703] group-hover/skill:bg-clip-text transition-all duration-300">
+                        <span className="text-white text-xs sm:text-sm lg:text-base font-medium truncate group-hover/skill:text-transparent group-hover/skill:bg-gradient-to-r group-hover/skill:from-[#2E7D32] group-hover/skill:to-[#FFB703] group-hover/skill:bg-clip-text transition-all duration-300">
                           {skill.name}
                         </span>
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <span className={`text-sm font-semibold px-2 py-1 rounded-full ${
+                      <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 ml-2">
+                        <span className={`text-xs sm:text-sm font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full ${
                           skill.level === 'Expert'
                           ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
                           : skill.level === 'Advanced'
@@ -196,22 +196,22 @@ const Skills = () => {
               </motion.div>
 
               {/* Decorative Elements */}
-              <div className={`absolute top-4 right-4 w-20 h-20 bg-gradient-to-r ${category.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-              <div className={`absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-r ${category.color} rounded-full opacity-5 group-hover:opacity-15 transition-opacity duration-300`}></div>
+              <div className={`absolute top-2 sm:top-4 right-2 sm:right-4 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-r ${category.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
+              <div className={`absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-r ${category.color} rounded-full opacity-5 group-hover:opacity-15 transition-opacity duration-300`}></div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Bottom CTA */}
         <motion.div 
-          className="text-center mt-16"
+          className="text-center mt-8 sm:mt-12 lg:mt-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
           <motion.p 
-            className="text-xl text-[#E2E8F0] mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base lg:text-xl text-[#E2E8F0] mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4"
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
@@ -220,12 +220,13 @@ const Skills = () => {
           
           <motion.a
             href="#contact"
-            className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white font-semibold rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="group inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-            Let&apos;s Build Something Amazing
+            <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-pulse" />
+            <span className="hidden sm:inline">Let&apos;s Build Something Amazing</span>
+            <span className="sm:hidden">Let&apos;s Build</span>
             <div className="absolute inset-0 rounded-full bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </motion.a>
         </motion.div>

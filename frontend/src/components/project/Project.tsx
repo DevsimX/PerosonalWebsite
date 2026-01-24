@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { 
   ExternalLink, 
   Code2, 
@@ -18,98 +19,29 @@ import { FaGithub } from 'react-icons/fa';
 const portfolioData = [
   {
     id: 1,
-    title: "Take out mobile app (Mobile size)",
-    description: "A responsive mobile-first food delivery application with real-time ordering and payment integration.",
-    website: "https://github.com/jiaxukang/Take-out-app-optimal",
-    demo: "http://takeout.codekang.live/takeout/index.html",
+    title: "OnlineShoppingSystem",
+    description: "Full-stack e-commerce app with Next.js frontend and Django + DRF backend. Features JWT authentication, product discovery with search and filtering, shopping cart with dual storage, Stripe payment integration, and order management.",
+    website: "https://github.com/DevsimX/OnlineShoppingSystem",
+    demo: "https://online-shopping-system-hv2v.vercel.app",
     jug: true,
-    category: "Mobile App",
-    icon: Smartphone,
-    color: "from-blue-500 to-cyan-500",
-    technologies: ["React", "JavaScript", "CSS3", "Mobile UI"]
+    category: "Full-Stack Application",
+    icon: Code2,
+    color: "from-indigo-500 to-purple-500",
+    technologies: ["Next.js", "React", "TypeScript", "Django", "Django REST Framework", "PostgreSQL", "Stripe", "Docker", "Tailwind CSS"],
+    image: "/poplocal.png"
   },
   {
     id: 2,
-    title: "Soon Metaverse website",
-    description: "An immersive metaverse platform showcasing virtual experiences and interactive 3D environments.",
-    website: "",
-    demo: "https://soonmetaverse.com/",
-    category: "Web Platform",
+    title: "Personal Website",
+    description: "A modern, animated portfolio built with Next.js, Tailwind CSS, and Framer Motion. Features smooth scroll interactions, themed components with unified design tokens, projects grid with category filters, and contact form with EmailJS integration.",
+    website: "https://github.com/DevsimX/PerosonalWebsite",
+    demo: "https://perosonal-website-5d42.vercel.app",
+    jug: true,
+    category: "Portfolio",
     icon: Globe,
-    color: "from-purple-500 to-pink-500",
-    technologies: ["Web3", "3D Graphics", "Interactive UI", "Metaverse"]
-  },
-  {
-    id: 6,
-    title: "Defence Tower Game",
-    description: "A strategic tower defense game with dynamic gameplay mechanics and engaging visual effects.",
-    website: "https://github.com/jiaxukang/DefenceTower",
-    demo: "https://www.youtube.com/watch?v=OLFFdOKLEz0",
-    jug: true,
-    category: "Game Development",
-    icon: Gamepad2,
-    color: "from-green-500 to-emerald-500",
-    technologies: ["Game Engine", "C#", "Unity", "Game Design"]
-  },
-  {
-    id: 4,
-    title: "Tripal Android App",
-    description: "A comprehensive travel companion app with itinerary planning and social features.",
-    website: "",
-    demo: "https://www.youtube.com/watch?v=lRNR12sU9JU",
-    category: "Mobile App",
-    icon: Smartphone,
-    color: "from-orange-500 to-red-500",
-    technologies: ["Android", "Java", "Travel API", "Social Features"]
-  },
-  {
-    id: 5,
-    title: "Linked Game",
-    description: "An innovative puzzle game with unique linking mechanics and challenging levels.",
-    website: "https://github.com/jiaxukang/LinkedGame",
-    demo: "https://jiaxukang.github.io/LinkedGame/play.html",
-    jug: true,
-    category: "Web Game",
-    icon: Gamepad2,
-    color: "from-indigo-500 to-purple-500",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Game Logic"]
-  },
-  {
-    id: 3,
-    title: "Library Management System",
-    description: "A comprehensive library management solution with user authentication and inventory tracking.",
-    website: "https://github.com",
-    demo: "https://www.youtube.com/watch?v=UEuPcORPjZM",
-    category: "Web Application",
-    icon: Database,
-    color: "from-teal-500 to-cyan-500",
-    technologies: ["Django", "Python", "PostgreSQL", "Admin Panel"]
-  },
-  {
-    id: 7,
-    title: "P2P Download Application",
-    description: "A peer-to-peer file sharing application with secure transfer protocols and user management.",
-    website: "https://github.com/jiaxukang/P2PFileTransfer",
-    demo: "https://github.com",
-    jug: true,
-    demos: true,
-    category: "Desktop Application",
-    icon: Code2,
-    color: "from-yellow-500 to-orange-500",
-    technologies: ["P2P Protocol", "Network Programming", "File Transfer", "Security"]
-  },
-  {
-    id: 8,
-    title: "White Board Application",
-    description: "A collaborative digital whiteboard with real-time drawing and team collaboration features.",
-    website: "https://github.com/jiaxukang/WhiteBoard",
-    demo: "https://github.com",
-    jug: true,
-    demos: true,
-    category: "Collaborative Tool",
-    icon: Palette,
-    color: "from-pink-500 to-rose-500",
-    technologies: ["Real-time", "Canvas API", "WebSocket", "Collaboration"]
+    color: "from-cyan-500 to-blue-500",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "react-icons", "EmailJS"],
+    image: "/personalwebsite.png"
   }
 ];
 
@@ -206,17 +138,29 @@ const Project = () => {
                 variants={itemVariants}
                 transition={{ duration: 0.6 }}
               >
-                {/* Project Image/Placeholder */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${project.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <project.icon className="w-8 h-8 text-white" />
+                {/* Project Image */}
+                <div className="relative h-48 overflow-hidden">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="relative h-full bg-gradient-to-br from-gray-800 to-gray-900">
+                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className={`w-16 h-16 bg-gradient-to-r ${project.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                            <project.icon className="w-8 h-8 text-white" />
+                          </div>
+                          <span className="text-gray-400 text-sm font-medium">Project Preview</span>
+                        </div>
                       </div>
-                      <span className="text-gray-400 text-sm font-medium">Project Preview</span>
                     </div>
-                  </div>
+                  )}
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
