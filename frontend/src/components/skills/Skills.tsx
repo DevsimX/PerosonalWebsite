@@ -138,17 +138,26 @@ const Skills = () => {
           {categories.map((category) => (
             <motion.div
               key={category.title}
-              className={`group relative p-4 sm:p-6 lg:p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-2xl sm:rounded-3xl hover:bg-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
+              className={`relative p-4 sm:p-6 lg:p-8 ${category.bgColor} backdrop-blur-sm border ${category.borderColor} rounded-2xl sm:rounded-3xl`}
               variants={cardVariants}
-              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-              whileHover={{ y: -10 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              whileHover={{ 
+                y: -10,
+                scale: 1.02,
+                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
             >
               {/* Header */}
               <div className="flex items-center mb-4 sm:mb-6 lg:mb-8">
-                <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${category.color} rounded-xl sm:rounded-2xl flex items-center justify-center mr-3 sm:mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
-                </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#2E7D32] group-hover:to-[#FFB703] group-hover:bg-clip-text transition-all duration-300">
+                <motion.div 
+                  className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${category.color} rounded-xl sm:rounded-2xl flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 aspect-square`}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <category.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white flex-shrink-0" />
+                </motion.div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                   {category.title}
                 </h3>
               </div>
@@ -167,20 +176,29 @@ const Skills = () => {
                   return sortedSkills.map((skill) => (
                     <motion.div
                       key={skill.name}
-                      className="group/skill flex items-center justify-between p-2.5 sm:p-3 lg:p-4 bg-white/5 rounded-lg sm:rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                      className="flex flex-col 2xl:flex-row 2xl:items-center gap-2 2xl:gap-3 p-2.5 sm:p-3 lg:p-4 bg-white/5 rounded-lg sm:rounded-xl"
                       variants={skillVariants}
-                      whileHover={{ x: 5 }}
+                      whileHover={{ 
+                        x: 5,
+                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                        scale: 1.02
+                      }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-                        <div className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-r ${category.color} rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 group-hover/skill:scale-110 transition-transform duration-300`}>
-                          <skill.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-white" />
-                        </div>
-                        <span className="text-white text-xs sm:text-sm lg:text-base font-medium truncate group-hover/skill:text-transparent group-hover/skill:bg-gradient-to-r group-hover/skill:from-[#2E7D32] group-hover/skill:to-[#FFB703] group-hover/skill:bg-clip-text transition-all duration-300">
+                      <div className="flex items-center gap-2 sm:gap-3 w-full 2xl:flex-1 2xl:min-w-0">
+                        <motion.div 
+                          className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-r ${category.color} rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 aspect-square`}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <skill.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-white flex-shrink-0" />
+                        </motion.div>
+                        <span className="text-white text-xs sm:text-sm lg:text-base font-medium">
                           {skill.name}
                         </span>
                       </div>
-                      <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 ml-2">
-                        <span className={`text-xs sm:text-sm font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full ${
+                      <div className="flex items-center justify-center 2xl:justify-end w-full 2xl:w-auto flex-shrink-0 2xl:ml-2">
+                        <span className={`text-xs sm:text-sm font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap w-full 2xl:w-auto text-center 2xl:text-left ${
                           skill.level === 'Expert'
                           ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
                           : skill.level === 'Advanced'
@@ -196,8 +214,16 @@ const Skills = () => {
               </motion.div>
 
               {/* Decorative Elements */}
-              <div className={`absolute top-2 sm:top-4 right-2 sm:right-4 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-r ${category.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-              <div className={`absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-r ${category.color} rounded-full opacity-5 group-hover:opacity-15 transition-opacity duration-300`}></div>
+              <motion.div 
+                className={`absolute top-2 sm:top-4 right-2 sm:right-4 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-r ${category.color} rounded-full opacity-10`}
+                whileHover={{ opacity: 0.2 }}
+                transition={{ duration: 0.2 }}
+              ></motion.div>
+              <motion.div 
+                className={`absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-r ${category.color} rounded-full opacity-5`}
+                whileHover={{ opacity: 0.15 }}
+                transition={{ duration: 0.2 }}
+              ></motion.div>
             </motion.div>
           ))}
         </motion.div>
@@ -220,14 +246,28 @@ const Skills = () => {
           
           <motion.a
             href="#contact"
-            className="group inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05 }}
+            className="relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg cursor-pointer"
+            whileHover={{ 
+              scale: 1.05,
+              filter: "brightness(1.1)",
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+            }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-pulse" />
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+            </motion.div>
             <span className="hidden sm:inline">Let&apos;s Build Something Amazing</span>
             <span className="sm:hidden">Let&apos;s Build</span>
-            <div className="absolute inset-0 rounded-full bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <motion.div 
+              className="absolute inset-0 rounded-full bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))] opacity-0"
+              whileHover={{ opacity: 0.2 }}
+              transition={{ duration: 0.2 }}
+            ></motion.div>
           </motion.a>
         </motion.div>
       </div>

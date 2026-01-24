@@ -77,8 +77,8 @@ const About = () => {
               {/* Main Image Container */}
               <motion.div 
                 className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[384px] h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[rgba(46,125,50,0.3)] bg-[linear-gradient(to_bottom_right,rgba(46,125,50,0.1),rgba(142,202,230,0.1))] backdrop-blur-sm mx-auto"
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.03, rotateY: 3 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               >
                 <Image 
                   src="/half.jpeg" 
@@ -125,23 +125,31 @@ const About = () => {
             viewport={{ once: true }}
           >
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.title}
-                  className="group relative p-4 sm:p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/10 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="relative p-3 sm:p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -5,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)"
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                   viewport={{ once: true }}
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${stat.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">{stat.value}</h3>
-                  <p className="text-sm sm:text-base text-gray-300 font-medium">{stat.title}</p>
-                  <p className="text-xs sm:text-sm text-gray-400">{stat.description}</p>
+                  <motion.div 
+                    className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r ${stat.color} rounded-lg flex items-center justify-center mb-2 sm:mb-3`}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </motion.div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-0.5">{stat.value}</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 font-medium">{stat.title}</p>
+                  <p className="text-xs text-gray-400">{stat.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -171,13 +179,27 @@ const About = () => {
             >
               <motion.a 
                 href="#contact" 
-                className="group inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl"
-                whileHover={{ scale: 1.05 }}
+                className="relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg cursor-pointer"
+                whileHover={{ 
+                  scale: 1.05,
+                  filter: "brightness(1.1)",
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               >
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-pulse" />
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                </motion.div>
                 Let&apos;s Talk
-                <div className="absolute inset-0 rounded-full bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <motion.div 
+                  className="absolute inset-0 rounded-full bg-[linear-gradient(to_right,rgba(46,125,50,0.7),rgba(255,183,3,0.7))] opacity-0"
+                  whileHover={{ opacity: 0.2 }}
+                  transition={{ duration: 0.2 }}
+                ></motion.div>
               </motion.a>
             </motion.div>
           </motion.div>

@@ -16,7 +16,7 @@ const Header = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
           {/* Left Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -49,13 +49,14 @@ const Header = () => {
               <h2 className="text-2xl lg:text-3xl text-[#E2E8F0] font-light">
                 Fullstack Developer
               </h2>
-              <p className="text-lg text-[#94A3B8] max-w-lg leading-relaxed">
+              <p className="text-lg text-[#94A3B8] max-w-lg leading-relaxed mx-auto lg:mx-0">
                 Crafting digital experiences with modern technologies and creative solutions. 
                 Passionate about building scalable applications that make a difference.
               </p>
             </motion.div>
 
             <motion.div
+              className="flex justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -64,7 +65,7 @@ const Header = () => {
             </motion.div>
 
             <motion.div
-              className="flex space-x-6"
+              className="flex space-x-6 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}

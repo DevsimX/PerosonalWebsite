@@ -8,7 +8,9 @@ import {
   Globe, 
   Zap,
   Star,
-  ArrowRight
+  ArrowRight,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
 
@@ -37,17 +39,33 @@ const portfolioData = [
     icon: Globe,
     color: "from-cyan-500 to-blue-500",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "react-icons", "EmailJS"],
-    image: "/personalwebsite.png"
+    image: "/personal_website.png"
   }
 ];
 
 const Project = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set());
   const categories = ["All", ...Array.from(new Set(portfolioData.map(item => item.category)))];
 
   const filteredProjects = selectedCategory === "All" 
     ? portfolioData 
     : portfolioData.filter(project => project.category === selectedCategory);
+
+  const toggleExpand = (projectId: number) => {
+    setExpandedProjects(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(projectId)) {
+        newSet.delete(projectId);
+      } else {
+        newSet.add(projectId);
+      }
+      return newSet;
+    });
+  };
+
+  const isExpanded = (projectId: number) => expandedProjects.has(projectId);
+  const DESCRIPTION_LIMIT = 120;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -130,20 +148,32 @@ const Project = () => {
             {filteredProjects.map((project) => (
               <motion.article
                 key={project.id}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl will-change-transform"
+                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden flex flex-col"
                 variants={itemVariants}
                 transition={{ duration: 0.6 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                }}
+                style={{ transition: "background-color 0.2s ease-out, box-shadow 0.2s ease-out" }}
               >
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
                   {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+                    <motion.div
+                      className="relative w-full h-full"
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </motion.div>
                   ) : (
                     <div className="relative h-full bg-gradient-to-br from-gray-800 to-gray-900">
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20"></div>
@@ -159,15 +189,22 @@ const Project = () => {
                   )}
                   
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <motion.div 
+                    className="absolute inset-0 bg-black/50 flex items-center justify-center pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <div className="flex space-x-4">
                       {project.jug && (
                         <motion.a
                           href={project.website}
                           target="_blank"
-                          className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-300 pointer-events-auto"
-                          whileHover={{ scale: 1.1 }}
+                          rel="noopener noreferrer"
+                          className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white pointer-events-auto"
+                          whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
                           whileTap={{ scale: 0.9 }}
+                          transition={{ duration: 0.2 }}
                         >
                           <FaGithub className="w-5 h-5" />
                         </motion.a>
@@ -176,19 +213,21 @@ const Project = () => {
                         <motion.a
                           href={project.demo}
                           target="_blank"
-                          className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-300 pointer-events-auto"
-                          whileHover={{ scale: 1.1 }}
+                          rel="noopener noreferrer"
+                          className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white pointer-events-auto"
+                          whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
                           whileTap={{ scale: 0.9 }}
+                          transition={{ duration: 0.2 }}
                         >
                           <ExternalLink className="w-5 h-5" />
                         </motion.a>
                       )}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <span className={`px-3 py-1 bg-gradient-to-r ${project.color} text-white text-xs font-semibold rounded-full`}>
                       {project.category}
@@ -198,13 +237,37 @@ const Project = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3">
                     {project.title}
                   </h3>
 
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
+                  <div className="mb-4">
+                    <p 
+                      className={`text-gray-300 text-sm leading-relaxed ${
+                        !isExpanded(project.id) ? 'line-clamp-3' : ''
+                      }`}
+                    >
+                      {project.description}
+                    </p>
+                    {project.description.length > DESCRIPTION_LIMIT && (
+                      <button
+                        onClick={() => toggleExpand(project.id)}
+                        className="mt-2 text-[#8ECAE6] hover:text-[#FFB703] text-xs font-medium flex items-center gap-1 transition-colors duration-200"
+                      >
+                        {isExpanded(project.id) ? (
+                          <>
+                            <span>Read less</span>
+                            <ChevronUp className="w-3 h-3" />
+                          </>
+                        ) : (
+                          <>
+                            <span>Read more</span>
+                            <ChevronDown className="w-3 h-3" />
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </div>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -218,17 +281,19 @@ const Project = () => {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex space-x-3">
+                  {/* Action Buttons - Pushed to bottom */}
+                  <div className="flex space-x-3 mt-auto">
                     {project.jug && (
                       <motion.a
                         href={project.website}
                         target="_blank"
-                        className={`flex-1 flex items-center justify-center px-4 py-2 bg-gradient-to-l ${project.color} text-white rounded-xl hover:shadow-lg transition-all duration-300 group/btn`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        rel="noopener noreferrer"
+                        className={`flex-1 flex items-center justify-center px-4 py-2 bg-gradient-to-l ${project.color} text-white rounded-xl`}
+                        whileHover={{ scale: 1.02, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <FaGithub className="w-4 h-4 mr-2 group-hover/btn:animate-pulse" />
+                        <FaGithub className="w-4 h-4 mr-2" />
                         <span className="text-sm font-medium">Code</span>
                       </motion.a>
                     )}
@@ -236,11 +301,13 @@ const Project = () => {
                       <motion.a
                         href={project.demo}
                         target="_blank"
-                    className={`flex-1 flex items-center justify-center px-4 py-2 bg-gradient-to-r ${project.color} text-white rounded-xl hover:shadow-lg transition-all duration-300 group/btn`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        rel="noopener noreferrer"
+                        className={`flex-1 flex items-center justify-center px-4 py-2 bg-gradient-to-r ${project.color} text-white rounded-xl`}
+                        whileHover={{ scale: 1.02, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:animate-pulse" />
+                        <ExternalLink className="w-4 h-4 mr-2" />
                         <span className="text-sm font-medium">Demo</span>
                       </motion.a>
                     )}
@@ -248,8 +315,16 @@ const Project = () => {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className={`absolute top-4 right-4 w-20 h-20 bg-gradient-to-r ${project.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                <div className={`absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-r ${project.color} rounded-full opacity-5 group-hover:opacity-15 transition-opacity duration-300`}></div>
+                <motion.div 
+                  className={`absolute top-4 right-4 w-20 h-20 bg-gradient-to-r ${project.color} rounded-full opacity-10`}
+                  whileHover={{ opacity: 0.2 }}
+                  transition={{ duration: 0.2 }}
+                ></motion.div>
+                <motion.div 
+                  className={`absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-r ${project.color} rounded-full opacity-5`}
+                  whileHover={{ opacity: 0.15 }}
+                  transition={{ duration: 0.2 }}
+                ></motion.div>
               </motion.article>
             ))}
           </AnimatePresence>
@@ -265,14 +340,32 @@ const Project = () => {
         >
           <motion.a
             href="#contact"
-            className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white font-semibold rounded-full hover:from-[#256f29] hover:to-[#e6a902] transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05 }}
+            className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white font-semibold rounded-full shadow-lg cursor-pointer"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+            }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Zap className="w-5 h-5 mr-2" />
+            </motion.div>
             Let&apos;s Create Something Together
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#8ECAE6] to-[#2E7D32] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <motion.div
+              whileHover={{ x: 4 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </motion.div>
+            <motion.div 
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-[#8ECAE6] to-[#2E7D32] opacity-0"
+              whileHover={{ opacity: 0.2 }}
+              transition={{ duration: 0.2 }}
+            ></motion.div>
           </motion.a>
         </motion.div>
       </div>
