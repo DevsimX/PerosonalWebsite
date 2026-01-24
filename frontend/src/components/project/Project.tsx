@@ -5,11 +5,7 @@ import Image from "next/image";
 import { 
   ExternalLink, 
   Code2, 
-  Smartphone, 
   Globe, 
-  Gamepad2, 
-  Database,
-  Palette,
   Zap,
   Star,
   ArrowRight
