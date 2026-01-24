@@ -176,7 +176,7 @@ const Project = () => {
                           <FaGithub className="w-5 h-5" />
                         </motion.a>
                       )}
-                      {!project.demos && (
+                      {project.demo && (
                         <motion.a
                           href={project.demo}
                           target="_blank"
@@ -236,7 +236,7 @@ const Project = () => {
                         <span className="text-sm font-medium">Code</span>
                       </motion.a>
                     )}
-                    {!project.demos && (
+                    {project.demo && (
                       <motion.a
                         href={project.demo}
                         target="_blank"
