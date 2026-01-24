@@ -22,15 +22,12 @@ const Skills = () => {
         { name: "Next.js", level: "Expert", icon: Star },
         { name: "React", level: "Expert", icon: Star },
         { name: "TypeScript", level: "Expert", icon: Star },
-        { name: "JavaScript (ES6+)", level: "Expert", icon: Star },
-        { name: "Tailwind CSS", level: "Advanced", icon: CheckCircle },
+        { name: "JavaScript", level: "Expert", icon: Star },
+        { name: "Tailwind", level: "Expert", icon: Star },
+        { name: "Framer", level: "Advanced", icon: CheckCircle },
         { name: "CSS3 & SCSS", level: "Advanced", icon: CheckCircle },
         { name: "HTML5", level: "Advanced", icon: CheckCircle },
-        { name: "Redux & Zustand", level: "Advanced", icon: CheckCircle },
-        { name: "Vue.js", level: "Intermediate", icon: CheckCircle },
-        { name: "Angular", level: "Intermediate", icon: CheckCircle },
-        { name: "Webpack & Vite", level: "Advanced", icon: CheckCircle },
-        { name: "Jest & Testing Library", level: "Advanced", icon: CheckCircle }
+        { name: "ReactIcon", level: "Advanced", icon: CheckCircle }
       ]
     },
     {
@@ -40,18 +37,12 @@ const Skills = () => {
       bgColor: "bg-[rgba(255,183,3,0.1)]",
       borderColor: "border-[rgba(255,183,3,0.2)]",
       skills: [
-        { name: "Django & DRF", level: "Expert", icon: Star },
+        { name: "Django", level: "Expert", icon: Star },
         { name: "Python", level: "Expert", icon: Star },
-        { name: "FastAPI", level: "Advanced", icon: CheckCircle },
-        { name: "Node.js & Express", level: "Advanced", icon: CheckCircle },
-        { name: "PostgreSQL", level: "Advanced", icon: CheckCircle },
-        { name: "MongoDB", level: "Advanced", icon: CheckCircle },
-        { name: "Redis", level: "Advanced", icon: CheckCircle },
-        { name: "MySQL", level: "Advanced", icon: CheckCircle },
-        { name: "GraphQL", level: "Intermediate", icon: CheckCircle },
-        { name: "RESTful APIs", level: "Expert", icon: Star },
-        { name: "Microservices", level: "Advanced", icon: CheckCircle },
-        { name: "WebSocket", level: "Advanced", icon: CheckCircle }
+        { name: "PostgreSQL", level: "Expert", icon: Star },
+        { name: "REST APIs", level: "Expert", icon: Star },
+        { name: "JWT Auth", level: "Advanced", icon: CheckCircle },
+        { name: "Stripe", level: "Advanced", icon: CheckCircle },
       ]
     },
     {
@@ -61,18 +52,16 @@ const Skills = () => {
       bgColor: "bg-[rgba(46,125,50,0.1)]",
       borderColor: "border-[rgba(46,125,50,0.2)]",
       skills: [
-        { name: "Git & GitHub", level: "Expert", icon: Star },
-        { name: "CI/CD Pipelines", level: "Expert", icon: Star },
-        { name: "Docker", level: "Advanced", icon: CheckCircle },
-        { name: "Kubernetes", level: "Advanced", icon: CheckCircle },
-        { name: "AWS (EC2, S3, RDS)", level: "Advanced", icon: CheckCircle },
-        { name: "Azure DevOps", level: "Advanced", icon: CheckCircle },
-        { name: "GitHub Actions", level: "Advanced", icon: CheckCircle },
-        { name: "Linux & Bash", level: "Advanced", icon: CheckCircle },
-        { name: "Nginx & Apache", level: "Advanced", icon: CheckCircle },
-        { name: "Monitoring & Logging", level: "Advanced", icon: CheckCircle },
-        { name: "Terraform", level: "Intermediate", icon: CheckCircle },
-        { name: "Ansible", level: "Intermediate", icon: CheckCircle }
+        { name: "Git/GitHub", level: "Expert", icon: Star },
+        { name: "Docker", level: "Expert", icon: Star },
+        { name: "AWS EC2", level: "Advanced", icon: CheckCircle },
+        { name: "AWS S3", level: "Advanced", icon: CheckCircle },
+        { name: "AWS RDS", level: "Advanced", icon: CheckCircle },
+        { name: "Vercel", level: "Advanced", icon: CheckCircle },
+        { name: "Render", level: "Advanced", icon: CheckCircle },
+        { name: "CI/CD", level: "Advanced", icon: CheckCircle },
+        { name: "GitHub CI", level: "Advanced", icon: CheckCircle },
+        { name: "Linux/Bash", level: "Advanced", icon: CheckCircle }
       ]
     }
   ];
