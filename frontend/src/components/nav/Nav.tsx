@@ -103,7 +103,7 @@ const Nav = () => {
               {/* Active indicator */}
               {activeNav === item.href && (
                 <motion.div
-                  className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-[#2E7D32] to-[#FFB703] rounded-full"
+                  className="absolute -left-2 top-1/2 -mt-4 w-1 h-8 bg-gradient-to-b from-[#2E7D32] to-[#FFB703] rounded-full"
                   layoutId="activeIndicator"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
