@@ -20,7 +20,7 @@ const Nav = () => {
     { href: "#", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
     { href: "#skills", icon: BookOpen, label: "Skills" },
-    { href: "#project", icon: Briefcase, label: "Projects" },
+    { href: "#projects", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: MessageCircle, label: "Contact" }
   ], []);
 

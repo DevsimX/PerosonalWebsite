@@ -7,6 +7,12 @@ import CTA from './CTA';
 import HeaderSocials from './HeaderSocials';
 
 const Header = () => {
+  const handleScrollDown = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("about");
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background Elements */}
@@ -133,9 +139,12 @@ const Header = () => {
         >
           <motion.a 
             href="#about"
-            className="flex flex-col items-center space-y-2 text-[#E2E8F0] drop-shadow group"
+            onClick={handleScrollDown}
+            className="flex flex-col items-center space-y-2 text-[#E2E8F0] drop-shadow cursor-pointer"
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
             <span className="text-sm font-medium bg-[rgba(15,23,42,0.5)] px-3 py-1 rounded-full">Scroll Down</span>
             <ChevronDown className="w-6 h-6 text-[#FFB703]" />

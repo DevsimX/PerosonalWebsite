@@ -100,7 +100,7 @@ const Project = () => {
   };
 
   return (
-    <section id="project" className="py-20 relative overflow-hidden">
+    <section id="projects" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       {/* Background handled globally; remove local blobs to avoid seams */}
 
