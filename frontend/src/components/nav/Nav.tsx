@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Home, 
@@ -14,18 +14,21 @@ import {
 const Nav = () => {
   const [activeNav, setActiveNav] = useState("#");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollLockUntilRef = useRef(0);
 
   const navItems = useMemo(() => [
     { href: "#", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
-    { href: "#skill", icon: BookOpen, label: "Skills" },
-    { href: "#portfolio", icon: Briefcase, label: "Projects" },
+    { href: "#skills", icon: BookOpen, label: "Skills" },
+    { href: "#project", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: MessageCircle, label: "Contact" }
   ], []);
 
   // Update active nav based on scroll position
   useEffect(() => {
     const handleScroll = () => {
+      if (Date.now() < scrollLockUntilRef.current) return;
+
       const sections = navItems.map(item => item.href.substring(1)).filter(Boolean);
       const scrollPosition = window.scrollY + 100;
 
@@ -45,9 +48,22 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navItems]);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setActiveNav(href);
     setIsMobileMenuOpen(false);
+
+    // Prevent scroll listener from "snapping back" during smooth scrolling.
+    scrollLockUntilRef.current = Date.now() + 900;
+
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const sectionId = href.substring(1);
+    const el = document.getElementById(sectionId);
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -64,8 +80,8 @@ const Nav = () => {
             <motion.a
               key={item.href}
               href={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className={`group relative p-3 rounded-xl transition-all duration-300 ${
+              onClick={(e) => handleNavClick(e, item.href)}
+              className={`group relative p-3 rounded-xl transition-all duration-300 grid place-items-center leading-none ${
                 activeNav === item.href
                   ? 'bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white shadow-lg'
                   : 'text-gray-400 hover:text-white hover:bg-white/10'
@@ -137,7 +153,7 @@ const Nav = () => {
                     <motion.a
                       key={item.href}
                       href={item.href}
-                      onClick={() => handleNavClick(item.href)}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className={`flex items-center space-x-3 p-3 rounded-xl transition-all duration-300 ${
                         activeNav === item.href
                           ? 'bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white'
