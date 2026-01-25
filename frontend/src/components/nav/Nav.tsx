@@ -29,19 +29,31 @@ const Nav = () => {
     const handleScroll = () => {
       if (Date.now() < scrollLockUntilRef.current) return;
 
+      // If we're near the very top, always highlight "Home"
+      // (prevents "About" from being selected due to scrollPosition offset).
+      if (window.scrollY < 40) {
+        setActiveNav("#");
+        return;
+      }
+
       const sections = navItems.map(item => item.href.substring(1)).filter(Boolean);
       const scrollPosition = window.scrollY + 100;
 
+      let matched = false;
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveNav(`#${section}`);
+            matched = true;
             break;
           }
         }
       }
+
+      // If nothing matched (e.g. between sections), keep current activeNav.
+      // We intentionally do NOT force "Home" here (handled above).
     };
 
     window.addEventListener('scroll', handleScroll);
