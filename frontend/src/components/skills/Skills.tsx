@@ -19,15 +19,15 @@ const Skills = () => {
       bgColor: "bg-[rgba(46,125,50,0.1)]",
       borderColor: "border-[rgba(46,125,50,0.2)]",
       skills: [
-        { name: "Next.js", level: "Expert", icon: Star },
-        { name: "React", level: "Expert", icon: Star },
-        { name: "TypeScript", level: "Expert", icon: Star },
-        { name: "JavaScript", level: "Expert", icon: Star },
-        { name: "Tailwind", level: "Expert", icon: Star },
-        { name: "Framer", level: "Advanced", icon: CheckCircle },
-        { name: "CSS3 & SCSS", level: "Advanced", icon: CheckCircle },
-        { name: "HTML5", level: "Advanced", icon: CheckCircle },
-        { name: "ReactIcon", level: "Advanced", icon: CheckCircle }
+        { name: "Next.js", type: "Framework", level: "Expert", icon: Star },
+        { name: "React", type: "Library", level: "Expert", icon: Star },
+        { name: "TypeScript", type: "Language", level: "Expert", icon: Star },
+        { name: "JavaScript", type: "Language", level: "Expert", icon: Star },
+        { name: "Tailwind", type: "Styling", level: "Expert", icon: Star },
+        { name: "Framer", type: "Anim", level: "Advanced", icon: CheckCircle },
+        { name: "CSS3 & SCSS", type: "Styling", level: "Advanced", icon: CheckCircle },
+        { name: "HTML5", type: "Markup", level: "Advanced", icon: CheckCircle },
+        { name: "ReactIcon", type: "Icons", level: "Advanced", icon: CheckCircle }
       ]
     },
     {
@@ -37,12 +37,12 @@ const Skills = () => {
       bgColor: "bg-[rgba(255,183,3,0.1)]",
       borderColor: "border-[rgba(255,183,3,0.2)]",
       skills: [
-        { name: "Django", level: "Expert", icon: Star },
-        { name: "Python", level: "Expert", icon: Star },
-        { name: "PostgreSQL", level: "Expert", icon: Star },
-        { name: "REST APIs", level: "Expert", icon: Star },
-        { name: "JWT Auth", level: "Advanced", icon: CheckCircle },
-        { name: "Stripe", level: "Advanced", icon: CheckCircle },
+        { name: "Django", type: "Framework", level: "Expert", icon: Star },
+        { name: "Python", type: "Language", level: "Expert", icon: Star },
+        { name: "PostgreSQL", type: "DB", level: "Expert", icon: Star },
+        { name: "REST APIs", type: "API", level: "Expert", icon: Star },
+        { name: "JWT Auth", type: "Auth", level: "Advanced", icon: CheckCircle },
+        { name: "Stripe", type: "Pay", level: "Advanced", icon: CheckCircle },
       ]
     },
     {
@@ -52,16 +52,17 @@ const Skills = () => {
       bgColor: "bg-[rgba(46,125,50,0.1)]",
       borderColor: "border-[rgba(46,125,50,0.2)]",
       skills: [
-        { name: "Git/GitHub", level: "Expert", icon: Star },
-        { name: "Docker", level: "Expert", icon: Star },
-        { name: "AWS EC2", level: "Advanced", icon: CheckCircle },
-        { name: "AWS S3", level: "Advanced", icon: CheckCircle },
-        { name: "AWS RDS", level: "Advanced", icon: CheckCircle },
-        { name: "Vercel", level: "Advanced", icon: CheckCircle },
-        { name: "Render", level: "Advanced", icon: CheckCircle },
-        { name: "CI/CD", level: "Advanced", icon: CheckCircle },
-        { name: "GitHub CI", level: "Advanced", icon: CheckCircle },
-        { name: "Linux/Bash", level: "Advanced", icon: CheckCircle }
+        { name: "Git/GitHub", type: "VCS", level: "Expert", icon: Star },
+        { name: "Docker", type: "Container", level: "Expert", icon: Star },
+        { name: "Cursor", type: "Tool", level: "Expert", icon: Star },
+        { name: "AWS EC2", type: "Cloud", level: "Advanced", icon: CheckCircle },
+        { name: "AWS S3", type: "Cloud", level: "Advanced", icon: CheckCircle },
+        { name: "AWS RDS", type: "Cloud", level: "Advanced", icon: CheckCircle },
+        { name: "Vercel", type: "Deploy", level: "Advanced", icon: CheckCircle },
+        { name: "Render", type: "Deploy", level: "Advanced", icon: CheckCircle },
+        { name: "CI/CD", type: "CI", level: "Advanced", icon: CheckCircle },
+        { name: "GitHub CI", type: "CI", level: "Advanced", icon: CheckCircle },
+        { name: "Linux/Bash", type: "OS", level: "Advanced", icon: CheckCircle }
       ]
     }
   ];
@@ -146,7 +147,7 @@ const Skills = () => {
                 >
                   <category.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white flex-shrink-0" />
                 </motion.div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                <h3 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold text-white">
                   {category.title}
                 </h3>
               </div>
@@ -165,7 +166,7 @@ const Skills = () => {
                   return sortedSkills.map((skill) => (
                     <motion.div
                       key={skill.name}
-                      className="flex flex-col 2xl:flex-row 2xl:items-center gap-2 2xl:gap-3 p-2.5 sm:p-3 lg:p-4 bg-white/5 rounded-lg sm:rounded-xl"
+                      className="flex flex-row items-center gap-1.5 sm:gap-2 lg:flex-col lg:items-stretch lg:gap-2 2xl:flex-row 2xl:items-center 2xl:gap-3 p-2.5 sm:p-3 lg:p-4 bg-white/5 rounded-lg sm:rounded-xl"
                       variants={skillVariants}
                       whileHover={{ 
                         x: 5,
@@ -174,20 +175,26 @@ const Skills = () => {
                       }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="flex items-center gap-2 sm:gap-3 w-full 2xl:flex-1 2xl:min-w-0">
+                      <div className="flex items-center gap-1.5 sm:gap-2 flex-1 min-w-0 lg:w-full 2xl:flex-1 2xl:min-w-0">
                         <motion.div 
-                          className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-r ${category.color} rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 aspect-square`}
+                          className={`w-7 h-7 sm:w-8 sm:h-8 md:w-7 md:h-7 lg:w-8 lg:h-8 bg-gradient-to-r ${category.color} rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 aspect-square`}
                           whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <skill.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-white flex-shrink-0" />
+                          <skill.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 text-white flex-shrink-0" />
                         </motion.div>
-                        <span className="text-white text-xs sm:text-sm lg:text-base font-medium">
-                          {skill.name}
-                        </span>
+                        <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                          <span className="text-white text-sm sm:text-base md:text-sm lg:text-base font-medium leading-snug">
+                            {skill.name}
+                          </span>
+                          <span className="px-2.5 py-1 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-white/10 text-white/70 border border-white/10">
+                            {skill.type}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-center 2xl:justify-end w-full 2xl:w-auto flex-shrink-0 2xl:ml-2">
-                        <span className={`text-xs sm:text-sm font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap w-full 2xl:w-auto text-center 2xl:text-left ${
+
+                      <div className="flex items-center justify-end flex-shrink-0 ml-1 sm:ml-2 lg:ml-0 lg:w-full lg:justify-center 2xl:w-auto 2xl:justify-end 2xl:ml-2 gap-2">
+                        <span className={`text-xs sm:text-sm font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap w-20 sm:w-24 lg:w-full text-center 2xl:w-auto 2xl:text-left ${
                           skill.level === 'Expert'
                           ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
                           : skill.level === 'Advanced'
