@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { typo } from "@/lib/typography";
 import { 
   Code2, 
   Database, 
@@ -110,10 +111,14 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 border bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]">
+          <span
+            className={`${typo.eyebrow} bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]`}
+          >
             What Skills I Have
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-4 sm:mb-6">
+          <h2
+            className={`${typo.sectionHeading} bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6]`}
+          >
             My Skills
           </h2>
         </motion.div>
@@ -147,7 +152,7 @@ const Skills = () => {
                 >
                   <category.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white flex-shrink-0" />
                 </motion.div>
-                <h3 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold text-white">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   {category.title}
                 </h3>
               </div>
@@ -184,17 +189,17 @@ const Skills = () => {
                           <skill.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 text-white flex-shrink-0" />
                         </motion.div>
                         <div className="flex items-center gap-2 min-w-0 flex-wrap">
-                          <span className="text-white text-sm sm:text-base md:text-sm lg:text-base font-medium leading-snug">
+                          <span className="text-white text-base font-medium leading-snug">
                             {skill.name}
                           </span>
-                          <span className="px-2.5 py-1 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-white/10 text-white/70 border border-white/10">
+                          <span className="px-2.5 py-1 rounded-full text-sm font-medium tracking-wide bg-white/10 text-white/70 border border-white/10">
                             {skill.type}
                           </span>
                         </div>
                       </div>
 
                       <div className="flex items-center justify-end flex-shrink-0 ml-1 sm:ml-2 lg:ml-0 lg:w-full lg:justify-center 2xl:w-auto 2xl:justify-end 2xl:ml-2 gap-2">
-                        <span className={`text-xs sm:text-sm font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap w-20 sm:w-24 lg:w-full text-center 2xl:w-auto 2xl:text-left ${
+                        <span className={`text-sm font-medium px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap w-20 sm:w-24 lg:w-full text-center 2xl:w-auto 2xl:text-left ${
                           skill.level === 'Expert'
                           ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
                           : skill.level === 'Advanced'
@@ -232,8 +237,8 @@ const Skills = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <motion.p 
-            className="text-sm sm:text-base lg:text-xl text-[#E2E8F0] mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4"
+          <motion.p
+            className={`${typo.sectionLead} mb-6 sm:mb-8 px-4`}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
@@ -242,7 +247,7 @@ const Skills = () => {
           
           <motion.a
             href="#contact"
-            className="relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg cursor-pointer"
+            className={`relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white rounded-full shadow-lg cursor-pointer ${typo.btnCta}`}
             whileHover={{ 
               scale: 1.05,
               filter: "brightness(1.1)",

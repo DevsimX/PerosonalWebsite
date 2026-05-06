@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, MessageCircle } from 'lucide-react';
+import { typo } from "@/lib/typography";
 
 const CTA = () => {
   return (
@@ -9,7 +10,7 @@ const CTA = () => {
       <motion.a 
         href="/cv.pdf" 
         download 
-        className="group relative inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#2E7D32] to-[#FFB703] rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+        className={`group relative inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-[#2E7D32] to-[#FFB703] rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 ${typo.btnCta}`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -20,7 +21,7 @@ const CTA = () => {
       
       <motion.a 
         href='#contact' 
-        className="group relative inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#2E7D32] to-[#FFB703] rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+        className={`group relative inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-[#2E7D32] to-[#FFB703] rounded-full hover:brightness-110 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 ${typo.btnCta}`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

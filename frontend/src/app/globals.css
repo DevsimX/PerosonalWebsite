@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,6 +37,11 @@
   --container-width-lg: 80%;
   --container-width-md: 90%;
   --container-width-sm: 95%;
+
+  /* Type scale (used by legacy CSS modules, e.g. services) */
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
 }
 
 html {
@@ -50,7 +53,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-sans);
   background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;

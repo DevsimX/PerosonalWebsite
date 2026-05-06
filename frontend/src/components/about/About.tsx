@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Award, GraduationCap, MapPin, MessageCircle, Code, Database, Cloud, Zap } from "lucide-react";
+import { typo } from "@/lib/typography";
 
 const About = () => {
   const stats = [
@@ -52,10 +53,14 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 border bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]">
+          <span
+            className={`${typo.eyebrow} bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]`}
+          >
             Get To Know
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-4 sm:mb-6">
+          <h2
+            className={`${typo.sectionHeading} bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6]`}
+          >
             About Me
           </h2>
         </motion.div>
@@ -147,25 +152,25 @@ const About = () => {
                   >
                     <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </motion.div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-0.5">{stat.value}</h3>
-                  <p className="text-xs sm:text-sm text-gray-300 font-medium">{stat.title}</p>
-                  <p className="text-xs text-gray-400">{stat.description}</p>
+                  <h3 className={typo.statValue}>{stat.value}</h3>
+                  <p className={typo.statLabel}>{stat.title}</p>
+                  <p className={typo.statHint}>{stat.description}</p>
                 </motion.div>
               ))}
             </div>
 
             {/* Description */}
             <motion.div
-              className="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none"
+              className="space-y-4 max-w-3xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <p className="text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg">
+              <p className={typo.bodyParagraph}>
                 Accomplished IT developer who holds Master of Software Engineering in The University of Melbourne and Bachelor of Computer Science in University of Arizona in designing, developing, and deploying scalable, highly available, and secure applications on the web technology stack with expertise in programming using Django and React.
               </p>
-              <p className="text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg mt-3 sm:mt-4">
+              <p className={typo.bodyParagraph}>
                 Skilled in writing high-quality, efficient code using object-oriented methods, SQL, and data processing. A fast learner who excels in dynamic work environments and highly motivated to leverage skills to drive success in the next role.
               </p>
             </motion.div>
@@ -179,7 +184,7 @@ const About = () => {
             >
               <motion.a 
                 href="#contact" 
-                className="relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg cursor-pointer"
+                className={`relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white rounded-full shadow-lg cursor-pointer ${typo.btnCta}`}
                 whileHover={{ 
                   scale: 1.05,
                   filter: "brightness(1.1)",

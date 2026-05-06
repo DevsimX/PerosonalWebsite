@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Image from "next/image";
+import { typo } from "@/lib/typography";
 import CTA from './CTA';
 import HeaderSocials from './HeaderSocials';
 
@@ -32,13 +33,15 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 border bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]">
+              <span
+                className={`${typo.eyebrow} bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]`}
+              >
                 👋 Hello, I&apos;m
               </span>
             </motion.div>
 
-            <motion.h1 
-              className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent leading-tight"
+            <motion.h1
+              className={typo.heroName}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -52,10 +55,10 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h2 className="text-2xl lg:text-3xl text-[#E2E8F0] font-light">
+              <h2 className={typo.heroRole}>
                 Fullstack Developer
               </h2>
-              <p className="text-lg text-[#94A3B8] max-w-lg leading-relaxed mx-auto lg:mx-0">
+              <p className={typo.heroLead}>
                 Crafting digital experiences with modern technologies and creative solutions. 
                 Passionate about building scalable applications that make a difference.
               </p>

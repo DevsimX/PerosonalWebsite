@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { typo } from "@/lib/typography";
 import Image from "next/image";
 import { 
   ExternalLink, 
@@ -112,13 +113,17 @@ const Project = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] rounded-full text-sm font-medium mb-4 border border-[rgba(46,125,50,0.3)]">
+          <span
+            className={`${typo.eyebrow} bg-[rgba(46,125,50,0.2)] text-[#8ECAE6] border-[rgba(46,125,50,0.3)]`}
+          >
             My Recent Work
           </span>
-          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#8ECAE6] via-[#FFB703] to-[#2E7D32] bg-clip-text text-transparent mb-6">
+          <h2
+            className={`${typo.sectionHeading} bg-gradient-to-r from-[#8ECAE6] via-[#FFB703] to-[#2E7D32]`}
+          >
             Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className={typo.sectionLead}>
             Explore my collection of projects that showcase my skills in full-stack development, 
             mobile applications, and innovative solutions.
           </p>
@@ -136,7 +141,7 @@ const Project = () => {
             <motion.button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white shadow-lg'
                   : 'bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white'
@@ -241,7 +246,7 @@ const Project = () => {
                 {/* Project Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`px-3 py-1 bg-gradient-to-r ${project.color} text-white text-xs font-semibold rounded-full`}>
+                    <span className={`px-3 py-1 bg-gradient-to-r ${project.color} text-white text-sm font-medium rounded-full`}>
                       {project.category}
                     </span>
                     <div className="flex items-center text-yellow-400">
@@ -249,7 +254,7 @@ const Project = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className={`${typo.cardTitle} mb-3`}>
                     {project.title}
                   </h3>
 
@@ -264,7 +269,7 @@ const Project = () => {
                     {project.description.length > DESCRIPTION_LIMIT && (
                       <button
                         onClick={() => toggleExpand(project.id)}
-                        className="mt-2 text-[#8ECAE6] hover:text-[#FFB703] text-xs font-medium flex items-center gap-1 transition-colors duration-200"
+                        className="mt-2 text-[#8ECAE6] hover:text-[#FFB703] text-sm font-medium flex items-center gap-1 transition-colors duration-200"
                       >
                         {isExpanded(project.id) ? (
                           <>
@@ -286,7 +291,7 @@ const Project = () => {
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded-full"
+                        className="px-2 py-1 bg-white/10 text-gray-300 text-sm rounded-full"
                       >
                         {tech}
                       </span>
@@ -351,7 +356,7 @@ const Project = () => {
         >
           <motion.a
             href="#contact"
-            className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white font-semibold rounded-full shadow-lg cursor-pointer"
+            className={`relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2E7D32] to-[#FFB703] text-white rounded-full shadow-lg cursor-pointer ${typo.btnCta}`}
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"

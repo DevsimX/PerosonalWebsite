@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { typo } from "@/lib/typography";
 import { 
   Mail, 
   ArrowUp,
@@ -83,14 +84,14 @@ const Footer = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <motion.a 
-                href="#" 
-                className="inline-block text-3xl font-bold bg-gradient-to-r from-[#2E7D32] via-[#FFB703] to-[#8ECAE6] bg-clip-text text-transparent mb-4"
+              <motion.a
+                href="#"
+                className={typo.footerBrand}
                 whileHover={{ scale: 1.05 }}
               >
                 Yutian Xia
               </motion.a>
-              <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
+              <p className={typo.footerBlurb}>
                 Passionate full-stack developer crafting digital experiences that make a difference. 
                 Let&apos;s build something amazing together.
               </p>
@@ -120,7 +121,7 @@ const Footer = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold text-white mb-6">Quick Links</h3>
+              <h3 className={`${typo.columnHeading} mb-6`}>Quick Links</h3>
               <ul className="space-y-3">
                 {footerLinks.map((link, index) => (
                   <motion.li
@@ -148,7 +149,7 @@ const Footer = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold text-white mb-6">Connect</h3>
+              <h3 className={`${typo.columnHeading} mb-6`}>Connect</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a

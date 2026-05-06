@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { typo } from "@/lib/typography";
 import { 
   Mail, 
   Send, 
@@ -91,13 +92,15 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-4 border border-blue-500/30">
+          <span className={`${typo.eyebrow} bg-blue-500/20 text-blue-300 border-blue-500/30`}>
             Get In Touch
           </span>
-          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#8ECAE6] via-[#FFB703] to-[#2E7D32] bg-clip-text text-transparent mb-6">
+          <h2
+            className={`${typo.sectionHeading} bg-gradient-to-r from-[#8ECAE6] via-[#FFB703] to-[#2E7D32]`}
+          >
             Contact Me
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className={typo.sectionLead}>
             Ready to bring your ideas to life? Let&apos;s discuss your project and create something amazing together.
           </p>
         </motion.div>
@@ -126,7 +129,9 @@ const Contact = () => {
                     <method.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
+                    <h3
+                      className={`${typo.cardTitle} mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300`}
+                    >
                       {method.title}
                     </h3>
                     <p className="text-gray-300 font-medium mb-1">{method.value}</p>
@@ -156,7 +161,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-lg font-bold text-white mb-4">Follow Me</h3>
+              <h3 className={`${typo.columnHeading} mb-4`}>Follow Me</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -258,7 +263,7 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  className={`w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl group ${typo.btnCta}`}
                   whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
