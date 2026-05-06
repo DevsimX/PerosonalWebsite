@@ -189,7 +189,7 @@ const Skills = () => {
                           <skill.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 text-white flex-shrink-0" />
                         </motion.div>
                         <div className="flex items-center gap-2 min-w-0 flex-wrap">
-                          <span className="text-white text-base font-medium leading-snug">
+                          <span className="text-white text-base font-semibold leading-snug">
                             {skill.name}
                           </span>
                           <span className="px-2.5 py-1 rounded-full text-sm font-medium tracking-wide bg-white/10 text-white/70 border border-white/10">

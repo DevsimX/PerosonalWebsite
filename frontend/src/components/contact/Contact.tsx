@@ -134,7 +134,7 @@ const Contact = () => {
                     >
                       {method.title}
                     </h3>
-                    <p className="text-gray-300 font-medium mb-1">{method.value}</p>
+                    <p className="text-gray-300 font-semibold mb-1">{method.value}</p>
                     <p className="text-gray-400 text-sm mb-4">{method.description}</p>
                     <motion.a
                       href={method.href}
